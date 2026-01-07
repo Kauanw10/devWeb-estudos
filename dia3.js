@@ -33,7 +33,6 @@ console.log("Usuários Ativos")
 console.log("---------------------------------------")
 
 function arrayUsers(users = []){
-   const a = 3
     let usersAtivos = 0
  for (let index = 0; index < users.length; index++) {
      const element = users[index];
@@ -52,7 +51,6 @@ console.log("Usuários Ativos - Nomes")
 console.log("---------------------------------------")
 
 function newArrayUsers(users=[]){
-     const a = 3
         let usersAtivos = []
     for (let index = 0; index < users.length; index++) {
         const element = users[index];
