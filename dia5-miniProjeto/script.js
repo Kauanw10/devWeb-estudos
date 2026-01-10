@@ -1,6 +1,5 @@
-const button = document.querySelector('button')
-const ul = document.querySelector('ul')
-const ulOnline = document.getElementById('listaOnline')
+const botao = document.querySelector('button')
+const lista = document.querySelector('ul')
 const users = []
 
 function processarCadastro() {
@@ -17,13 +16,13 @@ function processarCadastro() {
 }
 
 function desenharLista(){
-    ul.innerHTML = ""
+    lista.innerHTML = ""
     for (let index = 0; index < users.length; index++) {
-        const element = users[index];
-        if (element.online) {     
-            ul.innerHTML += ` <li>Usuário: ${element.nome}, Idade: ${element.idade}, Profissão: ${element.profissao} <button onclick="deletarCadastro(${index})">excluir</button> 🟢 Online</li>`
+        const usuariosCadastrados = users[index];
+        if (usuariosCadastrados.online) {     
+            lista.innerHTML += ` <li>Usuário: ${usuariosCadastrados.nome}, Idade: ${usuariosCadastrados.idade}, Profissão: ${usuariosCadastrados.profissao} <button onclick="deletarCadastro(${index})">excluir</button> 🟢 Online</li>`
         } else{
-            ul.innerHTML += ` <li>Usuário: ${element.nome} <button id="excluir" onclick="deletarCadastro(${index})">excluir</button> -  Offline🔴</li>`
+            lista.innerHTML += ` <li>Usuário: ${usuariosCadastrados.nome} <button id="excluir" onclick="deletarCadastro(${index})">excluir</button> -  Offline🔴</li>`
         }
     }
 }
@@ -33,4 +32,4 @@ function deletarCadastro(posicao) {
     desenharLista()
 }
 
-button.onclick = processarCadastro
+botao.onclick = processarCadastro

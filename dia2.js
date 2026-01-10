@@ -1,29 +1,36 @@
-let numRandom =  Math.floor(Math.random() * 11)
-const nota = numRandom
+let numeroAleatorio =  Math.floor(Math.random() * 11)
+const nota = numeroAleatorio
 
 console.log(nota)
 
 console.log("----------------------------")
 
-if(nota >= 8){
-    console.log(`Nota: ${nota} - APROVADO`)
-} else if((nota <= 7) && (nota >= 5)){
-    console.log(`Nota: ${nota} - RECUPERAÇÃO`)
-} else{
-    console.log(`Nota: ${nota} - REPROVADO`)
+function avaliacaoNota(nota) {
+    if(nota >= 8){
+       result =`Nota: ${nota} - APROVADO`
+    } else if((nota <= 7) && (nota >= 5)){
+       result =`Nota: ${nota} - RECUPERAÇÃO`
+    } else{
+       result =`Nota: ${nota} - REPROVADO`
+    }
+
+    return result
 }
+console.log(avaliacaoNota(nota))
 
 console.log("----------------------------")
 
-let a = 20
-for (let i = 1; i <= a; i++) {
-    const n = a[i];
-    if (i % 2 === 0) {
-        console.log(`${i} é PAR`)
-    } else{
-        console.log(`${i} é IMPAR`)
+    let limite = 20
+    for (let i = 1; i <= limite; i++) {
+        const n = limite[i];
+        if (i % 2 === 0) {
+           console.log(`${i} é PAR`)
+        } else{
+           console.log(`${i} é IMPAR`) 
+        }
     }
-}
+
+
 
 console.log("----------------------------")
 
