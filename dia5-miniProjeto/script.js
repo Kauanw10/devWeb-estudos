@@ -1,6 +1,7 @@
 const botao = document.querySelector('button')
 const lista = document.querySelector('ul')
 const users = []
+let usuariosOnline = []
 
 function processarDados() {
 
@@ -20,17 +21,26 @@ function processarCadastro(users, novoUsuario){
     desenharLista()
 }
 
-
 function desenharLista(){
     lista.innerHTML = ""
-    for (let index = 0; index < users.length; index++) {
-        const usuariosCadastrados = users[index];
-        if (usuariosCadastrados.online) {     
-            mostrarOnline(lista,usuariosCadastrados,index)
-        } else{
-            mostrarOffline(lista,usuariosCadastrados,index)
-        }
-    }
+
+    // Filtrando pelos Usuários Online
+    const usuariosOnline = users.filter(u => u.online)
+    
+    // Filtrando pelos Usuários Offline
+    const usuariosOffline = users.filter(u => !u.online)
+
+    // Buscando e exibindo o usuário de acordo com seu Status (Online/Offline)
+    usuariosOnline.forEach((u) => {
+        const indexOriginal = users.indexOf(u)
+        mostrarOnline(lista, u, indexOriginal)
+    })
+
+    usuariosOffline.forEach((u) => {
+        const indexOriginal = users.indexOf(u)
+        mostrarOffline(lista, u, indexOriginal)
+    })
+
 }
 
 function deletarCadastro(posicao) {
@@ -38,12 +48,12 @@ function deletarCadastro(posicao) {
     desenharLista()
 }
 
-function mostrarOnline(lista, usuariosCadastrados, index) {
-        lista.innerHTML += ` <li>Usuário: ${usuariosCadastrados.nome}, Idade: ${usuariosCadastrados.idade}, Profissão: ${usuariosCadastrados.profissao} <button onclick="deletarCadastro(${index})">excluir</button> 🟢 Online</li>`
+function mostrarOnline(lista, usuariosAtivos, index) {
+        lista.innerHTML += ` <li>Usuário: ${usuariosAtivos.nome}, Idade: ${usuariosAtivos.idade}, Profissão: ${usuariosAtivos.profissao} <button onclick="deletarCadastro(${index})">excluir</button> 🟢 Online</li>`
 }
 
 function mostrarOffline(lista, usuariosCadastrados, index) {
-        lista.innerHTML += ` <li>Usuário: ${usuariosCadastrados.nome} <button id="excluir" onclick="deletarCadastro(${index})">excluir</button> -  Offline🔴</li>`
+        lista.innerHTML += ` <li>Usuário: ${usuariosCadastrados.nome} <button onclick="deletarCadastro(${index})">excluir</button> -  Offline🔴</li>`
 }
 
 botao.onclick = processarDados
