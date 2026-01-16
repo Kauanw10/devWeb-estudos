@@ -13,7 +13,6 @@ function processarDados() {
     
     
     try {
-
         verificarNome(nome)
         verificarIdade(idade)
 
@@ -62,11 +61,11 @@ function deletarCadastro(posicao) {
 }
 
 // Exibindo a lista de usuarios o Status do usuário
-function mostrarOnline(lista, usuariosAtivos, index) {
+function mostrarListaOnline(lista, usuariosAtivos, index) {
     lista.innerHTML += ` <li>Usuário: ${usuariosAtivos.nome}, Idade: ${usuariosAtivos.idade}, Profissão: ${usuariosAtivos.profissao} <button onclick="deletarCadastro(${index})">excluir</button> 🟢 Online</li>`
 }
 
-function mostrarOffline(lista, usuariosCadastrados, index) {
+function mostrarListaOffline(lista, usuariosCadastrados, index) {
     lista.innerHTML += ` <li>Usuário: ${usuariosCadastrados.nome} <button onclick="deletarCadastro(${index})">excluir</button> -  Offline🔴</li>`
 }
 
