@@ -24,8 +24,9 @@ Meu sistema recebe informações de cadastro do usuario, armazena as informaçõ
 - Hoje percebi que sem regras, um sistema está completamente vulnerável a qualquer ação ou código que o usuário tentar realizar dentro do sistema.
 <br>
 "Semana 2 - finalizada (organização, lógica, regras e dados)"
+
 1. O que é o projeto?
-Um sistema para cadastro de usuários em lista
+- Um sistema para cadastro de usuários em lista
 2. O que o projeto executa?
  Salvamento de nome, idade, profissão e status de determinada pessoa e exibição dessas informações em uma lista de acordo com o status (online/offline)
 3. Quais regras de negócio existem?
