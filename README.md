@@ -23,6 +23,7 @@ Meu sistema recebe informações de cadastro do usuario, armazena as informaçõ
 "Dia 9 - regras de negócio e validações"
 - Hoje percebi que sem regras, um sistema está completamente vulnerável a qualquer ação ou código que o usuário tentar realizar dentro do sistema.
 <br>
+<br>
 "Semana 2 - finalizada (organização, lógica, regras e dados)"
 
 1. O que é o projeto?
@@ -38,6 +39,6 @@ Meu sistema recebe informações de cadastro do usuario, armazena as informaçõ
  - Desenvolver regras de negócio, para que meu sistema não quebre.
  - Desenvolver o código em funções que manipulam dados, validam regras e mexem com a interface separadamente.
  - Distribuir ou diminuir em funções, ação e/ou código que repetem a mesma tarefa.
-5. Próximo passo (o que ainda falta)
-Organizar a lista visualmente melhor, talvez ordenando por ordem de cadastro 
-Criar um filtro para a ordem da lista
+5. Próximo passo (o que ainda falta?)
+- Organizar a lista visualmente melhor, talvez ordenando por ordem de cadastro.
+Criar um filtro para a ordem da lista.
