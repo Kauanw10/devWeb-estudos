@@ -3,22 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
+    <title>Login</title>
 </head>
 <body>
-    <form action="cadastro.php" method="post">
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" id="nome">
-        <br><br>
+    <form action="valida_login.php" method="post">
         <label for="email">Email: </label>
         <input type="email" name="email" id="email">
         <br><br>
         <label for="senha">Senha: </label>
         <input type="password" name="senha" id="senha">
         <br><br>
-        <button type="submit">Enviar</button>
-        <br>
-        <p>Já possui cadastro? <a href="login.html">Faça Login</a></p>
+        <button type="submit">Entrar</button>
+         <p>Não possui cadastro? <a href="index.html">Faça Agora</a></p>
     </form>
 </body>
 </html>
