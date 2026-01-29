@@ -1,13 +1,15 @@
 <?php 
-    session_start();
-    if (!$_SESSION['papel'] === 'admin' || $_SESSION['logado'] !== true) {
-        echo "<script>
-            alert('Acesso Bloqueado!!');
-            window.history.back();
-          </script>";
-       exit;
+    require_once "../controllers/init.php";
+    try {
+        verificarAdmin();
+    } catch (\Throwable $e) {
+        echo $e->getMessage();
+        exit;
     }
-    require_once "conexao.php";
+?>
+
+<?php 
+    require_once "../models/conexao.php";
     
     $stmt = $pdo->prepare("SELECT * FROM usuarios");
     $stmt->execute();
@@ -15,11 +17,12 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
@@ -28,10 +31,12 @@
     <pre>
     <?= 
     print_r($lista);
-    print_r($_SESSION);
     ?>
     </pre>
 
-    <a href="sair.php">Sair</a>
+    <p>E-mail: <?= $_SESSION['user_email']?></p>
+    <p>Papel: <?= $_SESSION['papel']?></p>
+
+    <a href="../controllers/sair.php">Sair</a>
 </body>
 </html>

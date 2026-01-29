@@ -1,5 +1,5 @@
 <?php 
-    require_once "conexao.php";
+    require_once "../models/conexao.php";
     require_once "auth.php";
 
     // Funções de Cadastro
@@ -23,7 +23,7 @@
         if ($cadastrado === true) {
             echo "<script>
                 alert('Usuário Cadastrado com Sucesso!');
-                window.location.href = 'login.html';
+                window.location.href = '../views/login.html';
                 </script>";
             exit;
         }
@@ -40,15 +40,28 @@
 
     function validarSenhas($senhaDigitada, $senhaBanco, $emailUsuario, $papel){
         $verificacao = password_verify($senhaDigitada,$senhaBanco);
-
-        try {
+        if ($verificacao) {
             $_SESSION['logado'] = true;
             $_SESSION['user_email'] = $emailUsuario;
             $_SESSION['papel'] = $papel;
-            verificarLogin($verificacao, $papel);
-                
-        } catch (\Throwable $e) {
-            echo $e->getMessage();
+            redirecionarAposLogin($papel);
+        }else {
+              echo "<script>
+                alert('Senha incorreta!!');
+                window.history.back();
+            </script>";
+            exit;
         }
     }
+
+    // Função de Admin
+    // function validarAdmPage(){
+    //      if (!$_SESSION['papel'] === 'admin' || $_SESSION['logado'] !== true) {
+    //     echo "<script>
+    //         alert('Acesso Bloqueado!!');
+    //         window.history.back();
+    //       </script>";
+    //    exit;
+    // }
+    // }
 ?>

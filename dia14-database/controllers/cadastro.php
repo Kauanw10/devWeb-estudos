@@ -1,5 +1,5 @@
 <?php 
-    require_once "conexao.php";
+    require_once "../models/conexao.php";
     require_once "funcoes.php";
 
     $nome = trim($_POST['nome'] ?? '');
