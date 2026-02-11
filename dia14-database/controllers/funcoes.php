@@ -46,10 +46,7 @@
             $_SESSION['papel'] = $papel;
             redirecionarAposLogin($papel);
         }else {
-              echo "<script>
-                alert('Senha incorreta!!');
-                window.history.back();
-            </script>";
+            throw new Exception("Senha incorreta!");
             exit;
         }
     }
@@ -58,7 +55,7 @@
     
     function registrarErro($e) {
     $arquivoLog = __DIR__ . '/../logs/erros.log';
-    // __DIR__ . '/../logs/erros.log' -> Retorna o caminho do diretório pára o arquivo atual, sai do diretório atual e vai para a pasta de logs no arquivo erros.log e guarda tudo na variavel $arquivoLog.
+    // __DIR__ . '/../logs/erros.log' -> Retorna o caminho do diretório para o arquivo atual, sai do diretório atual e vai para a pasta de logs no arquivo erros.log e guarda tudo na variavel $arquivoLog.
 
     $mensagem = "[" . date('Y-m-d H:i:s') . "]" . PHP_EOL;
     $mensagem .= "Mensagem: " . $e->getMessage() . PHP_EOL;

@@ -17,7 +17,7 @@
         }
         
         if ($_SESSION['papel'] !== 'admin') {
-            header("Location: perfil.php");
+            header("Location: ../views/perfil.php");
             exit;
         }
     }
