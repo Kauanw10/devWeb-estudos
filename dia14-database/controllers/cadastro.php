@@ -29,6 +29,15 @@
         }
 
     } catch (\Throwable $e) {
-        echo $e->getMessage();
+        if (ENV === 'prod') {
+        registrarErro($e);
+        // Em vez de mostrar o erro real, mostramos uma máscara
+        echo "Ops! Ocorreu um erro inesperado. Tente novamente mais tarde.";
+        } else {
+        registrarErro($e);
+        // Se for dev, aí sim mostramos tudo para facilitar o seu trabalho
+        echo "<strong>Erro Técnico:</strong> " . $e->getMessage();
+        echo "<br>Arquivo: " . $e->getFile() . " na linha " . $e->getLine();
+        }
     }
 ?>
